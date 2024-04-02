@@ -26,3 +26,9 @@ jobs:
         kind: scan
         with:
           language: GO
+      - uses: cloudbees-io/configure-oci-credentials@v1
+        name: Set up Docker Hub registry
+        with:
+           registry: index.docker.io # or docker.io
+           username: ${{ vars.PN_QUICKSTART_DOCKER_USERNAME }}
+           password: ${{ secrets.PN_QUICKSTART_DOCKER_PASSWORD }}
