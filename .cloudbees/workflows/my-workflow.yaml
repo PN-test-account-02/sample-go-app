@@ -32,3 +32,7 @@ jobs:
            registry: index.docker.io # or docker.io
            username: ${{ vars.PN_QUICKSTART_DOCKER_USERNAME }}
            password: ${{ secrets.PN_QUICKSTART_DOCKER_PASSWORD }}
+      - uses: cloudbees-io/kaniko@v1
+        name: Push image to registry
+        with:
+          destination: ${{ vars.PN_QUICKSTART_DOCKER_USERNAME }}/my-sample-go-app:1.0.0
